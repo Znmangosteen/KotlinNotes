@@ -1,4 +1,12 @@
+
+
 # 基本知识和语法
+
+> 教程  https://www.youtube.com/watch?v=F9UC9DY-vIU&t=2233s 
+>
+> https://www.youtube.com/watch?v=6P20npkvcb8的笔记
+
+### 基本语法、集合类
 
 1. 关于变量
       - ```kotlin
@@ -85,7 +93,7 @@
 
 10. vararg 用于参数个数可以变化的情况
 
-      ```
+      ```kotlin
       fun variableParaNum(vararg arg){}
       
       fun main(){
@@ -95,4 +103,154 @@
       }
       ```
 
-      
+11. 可以指定参数(有些像Python)
+
+       ```kotlin
+       function(para1=xxx,para2=xxxxx)
+       ```
+
+12. 可以给函数指定默认的参数
+
+       ```kotlin
+       fun function(para: paraType ="aaa"){}
+       ```
+
+13. 选择赋值
+
+       ```kotlin
+       val foo:String =if(true) "aaa" else "bbb" 
+       
+       //看左侧的是不是null
+       val foo = name ?: "no name"
+       ```
+
+14. cast type
+
+       ```kotlin
+       (varA as DataType ).fun()
+       ```
+
+15. lazy定义变量
+
+       ```kotlin
+       val os:String by lazy{
+       	pirntln("")
+       	System.getProperty("os.name")+"v"+...
+       }
+       ```
+
+16. 自己写操作库
+
+       ![1565684743402](Basic_Knowledge/1565684743402.png)
+
+17. Extension function
+
+       ![1565685159815](Basic_Knowledge/1565685159815.png)
+
+18. Extension properties
+
+    ![1565685335980](Basic_Knowledge/1565685335980.png)
+
+19. 
+
+
+
+ 
+
+   
+
+   
+
+   
+
+
+
+### Class相关
+
+1. ```kotlin
+   class className
+   ```
+
+2. 构造器
+
+   ```kotlin
+   //空构造器
+   class className constructor()
+   //一种构造器
+   class Person(_firstName: String,_lastName: String){
+   	val firstName: String
+   	val lastName: String
+   	
+   	init{
+   		something
+   	}
+   }
+   //另一种构造器
+   class Person(_firstName: String,_lastName: String){
+   	val firstName: String=_firstName
+   	val lastName: String=_lastName
+   }
+   //还有一种
+   class Person(val firstName: String, val lastName: String){}
+   
+   //init都会跑，在主构造器条件不满足的时候最后会跑constructor
+   class Person(val firstName: String, val lastName: String){
+       init{
+           
+       }
+       
+       constructor():this("Peter","Parker"){
+           xxx
+       }
+       
+       init{
+           
+       }
+   }
+   ```
+
+3. 类变量的setter 和 getter
+
+   ```kotlin
+       var nickName: String? = null
+           set(value) {
+               field = value
+               println("name is $value")
+           }
+   		get(){
+              return field 
+           }
+   ```
+
+4. Data class
+
+   // TODO
+
+### Interface
+
+1. ```kotlin
+   interface PersonInfoProvider{
+   	fun printInfo()
+   }
+   
+   interface SessionInfoprovider{
+       fun getSessionId():String
+   }
+   
+   abstract class BasicInfoProvider :PersonInfoProviderAbs
+   
+   class BasicInfoProvider : PersonInfoProvider,SessionInfoprovider{
+       //override必须加
+       override fun printInfo() {
+           super.fun()
+       }
+   }
+   
+   
+   ```
+
+   
+
+### Inheritance 
+
+1. 
